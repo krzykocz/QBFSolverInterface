@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krzykocz.qbfsolverinterface.FXMLController">
+   <children>
+      <TextField fx:id="VariablesField" layoutX="14.0" layoutY="42.0" prefHeight="26.0" prefWidth="480.0" />
+      <TextArea fx:id="ClausesArea" layoutX="14.0" layoutY="96.0" prefHeight="461.0" prefWidth="480.0" wrapText="true" />
+      <ButtonBar layoutX="310.0" layoutY="585.0">
+         <buttons>
+            <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonAction" text="Convert" />
+            <Button fx:id="saveCnfButton" mnemonicParsing="false" text="Save CNF" />
+            <Button fx:id="depqbfButton" mnemonicParsing="false" onAction="#depqbfButtonAction" text="DepQBF" />
+            <Button fx:id="rareButton" mnemonicParsing="false" onAction="#rareqsButtonAction" text="RareQS" />
+         </buttons>
+      </ButtonBar>
+      <TextArea fx:id="CnfArea" editable="false" layoutX="505.0" layoutY="42.0" prefHeight="515.0" prefWidth="480.0" wrapText="true" />
+      <Label layoutX="14.0" layoutY="20.0" text="Variables:" />
+      <Label layoutX="14.0" layoutY="74.0" text="Clauses:" />
+      <Label layoutX="505.0" layoutY="20.0" text="After convert:" />
+   </children>
+</AnchorPane>
