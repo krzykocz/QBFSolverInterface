@@ -14,7 +14,7 @@
       <ButtonBar layoutX="310.0" layoutY="585.0">
          <buttons>
             <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonAction" text="Convert" />
-            <Button fx:id="saveCnfButton" mnemonicParsing="false" text="Save CNF" />
+            <Button fx:id="saveCnfButton" mnemonicParsing="false" onAction="#saveButtonAction" text="Save CNF" />
             <Button fx:id="depqbfButton" mnemonicParsing="false" onAction="#depqbfButtonAction" text="DepQBF" />
             <Button fx:id="rareButton" mnemonicParsing="false" onAction="#rareqsButtonAction" text="RareQS" />
          </buttons>

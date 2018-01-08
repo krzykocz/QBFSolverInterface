@@ -1,6 +1,7 @@
 package com.krzykocz.qbfsolverinterface;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class FXMLController implements Initializable {
 
@@ -23,7 +26,13 @@ public class FXMLController implements Initializable {
     @FXML
     private TextArea CnfArea;
     @FXML
-    private Alert info_popup = new Alert(AlertType.INFORMATION);
+    private Alert infodeb_popup = new Alert(AlertType.INFORMATION);
+    @FXML
+    private Alert inforar_popup = new Alert(AlertType.INFORMATION);
+    @FXML
+    private Alert error_info = new Alert(AlertType.ERROR);
+    @FXML
+    FileChooser fileChooser = new FileChooser();
 
     private ConvertHToCnf chtc = new ConvertHToCnf();
     private Solve solve = new Solve();
@@ -43,22 +52,34 @@ public class FXMLController implements Initializable {
 //        String output = solve.solvers(chtc.getQbfinput());
 //        System.err.println(output);
         String depOut = solve.solverDep(chtc.getQbfinput());
-        info_popup.setHeaderText(depOut);
-        info_popup.showAndWait();
+        infodeb_popup.setHeaderText(depOut);
+        infodeb_popup.showAndWait();
 //        System.err.println(new File("target/classes/qbfsolvers/depqbf").getAbsolutePath().toString());
     }
-    
+
     @FXML
     private void rareqsButtonAction(ActionEvent event) throws URISyntaxException {
         String rareOut = solve.solverRare(chtc.getQbfinput());
-        info_popup.setHeaderText(rareOut);
-        info_popup.showAndWait();
+        inforar_popup.setHeaderText(rareOut);
+        inforar_popup.showAndWait();
+    }
+
+    @FXML
+    private void saveButtonAction(ActionEvent event) {
+        File saveFile = fileChooser.showSaveDialog(new Stage());
+        if (saveFile != null) {
+            try (PrintWriter out = new PrintWriter(saveFile)) {
+                out.println(CnfArea.getText());
+            } catch (java.io.FileNotFoundException ex) {
+                error_info.setTitle("ERROR");
+                error_info.setHeaderText("Error writing to file!");
+            }
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         // TODO
-        
     }
 }
