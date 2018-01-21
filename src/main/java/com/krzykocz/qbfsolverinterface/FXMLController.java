@@ -76,6 +76,15 @@ public class FXMLController implements Initializable {
             }
         }
     }
+    
+    @FXML
+    private void loadButtonAction(ActionEvent event) {
+        File loadFile = fileChooser.showOpenDialog(new Stage());
+        if (loadFile !=null) {
+            chtc.setQbfinput(loadFile);
+            CnfArea.setText(chtc.readFile(chtc.getQbfinput()));
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
