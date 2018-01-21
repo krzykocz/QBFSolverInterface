@@ -15,8 +15,9 @@
          <buttons>
             <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonAction" text="Convert" />
             <Button fx:id="saveCnfButton" mnemonicParsing="false" onAction="#saveButtonAction" text="Save CNF" />
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadButtonAction" text="Load CNF" />
             <Button fx:id="depqbfButton" mnemonicParsing="false" onAction="#depqbfButtonAction" text="DepQBF" />
-            <Button fx:id="rareButton" mnemonicParsing="false" onAction="#rareqsButtonAction" text="RareQS" />
+            <Button fx:id="rareButton" mnemonicParsing="false" onAction="#rareqsButtonAction" text="RAReQS" />
          </buttons>
       </ButtonBar>
       <TextArea fx:id="CnfArea" editable="false" layoutX="505.0" layoutY="42.0" prefHeight="515.0" prefWidth="480.0" wrapText="true" />
